@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 40% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 260 30% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 260 35% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 285 88% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 180 90% 50%;
+    --secondary-foreground: 260 40% 5%;
+
+    --muted: 260 20% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 285 88% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 260 20% 20%;
+    --input: 260 20% 20%;
+    --ring: 285 88% 53%;
+
+    --radius: 1rem;
+    
+    --neon-purple: 285 88% 53%;
+    --neon-cyan: 180 90% 50%;
+    --deep-bg: 260 40% 5%;
+    --card-bg: 260 30% 8%;
+  }
+
+  .dark {
+    --background: 260 40% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 260 30% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 260 35% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 285 88% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 180 90% 50%;
+    --secondary-foreground: 260 40% 5%;
+
+    --muted: 260 20% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 285 88% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 260 20% 20%;
+    --input: 260 20% 20%;
+    --ring: 285 88% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(176, 32, 240, 0.5);
+  }
+  
+  .glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.5);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(176, 32, 240, 0.6);
+  }
+  
+  .gradient-purple {
+    background: linear-gradient(135deg, #B020F0 0%, hsl(285 88% 40%) 100%);
+  }
+  
+  .gradient-card {
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(260 30% 10%) 100%);
+  }
+}
+

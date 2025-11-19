@@ -1,73 +1,122 @@
-# Welcome to your Lovable project
+# Artyuga Marketplace
 
-## Project info
+A premium digital art marketplace built with Next.js 14, TypeScript, and TailwindCSS. This frontend showcases artist shops and verified artworks with a futuristic dark theme featuring neon purple accents.
 
-**URL**: https://lovable.dev/projects/be7f7f01-df25-479f-9b83-53347013c473
+## Features
 
-## How can I edit this code?
+- 🏪 **Shop Listings**: Browse artist storefronts on the homepage
+- 🎨 **Artwork Gallery**: View artworks organized by shop
+- 💰 **Purchase Flow**: Simulated purchase with QR code generation
+- ✅ **Verification Page**: Premium verification page with blockchain details
+- 📱 **Mobile Responsive**: Optimized for both desktop and mobile (Base app browser)
+- 🎭 **Dark Theme**: Futuristic purple-neon aesthetic
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **TailwindCSS**
+- **Radix UI** (Dialog, Avatar components)
+- **qrcode.react** (QR code generation)
+- **Lucide React** (Icons)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/be7f7f01-df25-479f-9b83-53347013c473) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ or Bun
+- npm, yarn, or bun
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Install dependencies:
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install
+# or
+yarn install
+# or
+bun install
 ```
 
-**Edit a file directly in GitHub**
+2. Run the development server:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+bun dev
+```
 
-**Use GitHub Codespaces**
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+artyuga-authenticate/
+├── app/
+│   ├── api/              # API routes (mock data)
+│   ├── art/[artId]/      # Artwork detail page
+│   ├── shop/[shopId]/    # Shop page
+│   ├── verify/[artId]/   # Verification page
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx          # Homepage (shops list)
+│   └── globals.css       # Global styles
+├── components/
+│   ├── ui/               # Reusable UI components
+│   ├── ArtworkCard.tsx   # Artwork card component
+│   ├── ShopCard.tsx      # Shop card component
+│   ├── Header.tsx        # Header component
+│   └── PurchaseModal.tsx # Purchase modal with QR code
+├── data/
+│   └── mockData.ts       # Mock data for shops and artworks
+└── lib/
+    └── utils.ts          # Utility functions
+```
 
-This project is built with:
+## Pages
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **`/`** - Homepage showing all shops
+- **`/shop/[shopId]`** - Individual shop page with artworks
+- **`/art/[artId]`** - Artwork detail page with purchase button
+- **`/verify/[artId]`** - Verification page with blockchain details
 
-## How can I deploy this project?
+## API Routes
 
-Simply open [Lovable](https://lovable.dev/projects/be7f7f01-df25-479f-9b83-53347013c473) and click on Share -> Publish.
+- **`/api/shops`** - Get all shops
+- **`/api/shops/[id]`** - Get shop details with artworks
+- **`/api/artworks/[id]`** - Get artwork details with shop info
 
-## Can I connect a custom domain to my Lovable project?
+## Mock Data
 
-Yes, you can!
+The app uses static mock data stored in `data/mockData.ts`:
+- 3 shops
+- 13 artworks (4-5 per shop)
+- Each artwork includes title, description, image, price, and owner
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Deployment
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This app is ready to deploy on Vercel:
+
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Deploy automatically
+
+## Design
+
+- **Primary Color**: #B020F0 (Neon Purple)
+- **Theme**: Dark with purple accents
+- **Style**: Premium, futuristic, OpenSea-inspired
+- **Animations**: Smooth hover effects and transitions
+
+## Notes
+
+- All purchases are simulated (no real blockchain integration)
+- Images use placeholder services (Picsum Photos, DiceBear)
+- QR codes link to verification pages
+- Transaction hashes are randomly generated
+
+## License
+
+MIT
