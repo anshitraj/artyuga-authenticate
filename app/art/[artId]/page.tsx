@@ -134,6 +134,7 @@ export default function ArtworkPage() {
         open={modalOpen}
         onOpenChange={setModalOpen}
         artId={artwork.id}
+        shopId={artwork.shop.id}
       />
     </div>
   );

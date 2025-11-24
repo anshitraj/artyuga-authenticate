@@ -17,16 +17,25 @@ interface PurchaseModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   artId: string;
+  shopId?: string;
 }
 
 export default function PurchaseModal({
   open,
   onOpenChange,
   artId,
+  shopId,
 }: PurchaseModalProps) {
   const [showQR, setShowQR] = useState(false);
   const router = useRouter();
-  const verificationUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/verify/${artId}`;
+  
+  // Generate verification URL with shopId and artId for proper data fetching
+  // Format: /verify/mock?shopId=X&artId=Y (for verifier compatibility)
+  // Or: /verify/{artId} (for marketplace page)
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  const verificationUrl = shopId 
+    ? `${baseUrl}/verify/mock?shopId=${shopId}&artId=${artId}`
+    : `${baseUrl}/verify/${artId}`;
 
   // Reset showQR when modal closes
   const handleOpenChange = (newOpen: boolean) => {
