@@ -10,6 +10,7 @@ import { Store, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getArtworkById, getShopById } from "@/data/mockData";
+import { convertEthToInr } from "@/lib/currency";
 
 interface ArtworkData {
   id: string;
@@ -73,7 +74,7 @@ export default function ArtworkPage() {
                 fill
                 className="object-cover"
                 priority
-                unoptimized
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 
@@ -113,7 +114,7 @@ export default function ArtworkPage() {
 
                 <div>
                   <h3 className="text-sm font-semibold text-muted-foreground mb-2">Price</h3>
-                  <p className="text-3xl font-bold text-primary">{artwork.price}</p>
+                  <p className="text-3xl font-bold text-primary">{convertEthToInr(artwork.price)}</p>
                 </div>
               </div>
 

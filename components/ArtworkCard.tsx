@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { convertEthToInr } from "@/lib/currency";
 
 interface ArtworkCardProps {
   artwork: {
@@ -16,6 +17,8 @@ interface ArtworkCardProps {
 }
 
 export default function ArtworkCard({ artwork }: ArtworkCardProps) {
+  const inrPrice = convertEthToInr(artwork.price);
+  
   return (
     <Link href={`/art/${artwork.id}`}>
       <Card className="group cursor-pointer overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 hover:scale-[1.02]">
@@ -25,7 +28,8 @@ export default function ArtworkCard({ artwork }: ArtworkCardProps) {
             alt={artwork.title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-110"
-            unoptimized
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <CardContent className="p-4 space-y-2">
@@ -36,7 +40,7 @@ export default function ArtworkCard({ artwork }: ArtworkCardProps) {
             {artwork.description}
           </p>
           <div className="flex items-center justify-between pt-2">
-            <span className="text-lg font-bold text-primary">{artwork.price}</span>
+            <span className="text-lg font-bold text-primary">{inrPrice}</span>
             <Button
               variant="outline"
               size="sm"

@@ -9,6 +9,7 @@ import { CheckCircle2, Share2, Store, Copy, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getArtworkById, getShopById, generateTransactionHash } from "@/data/mockData";
+import { convertEthToInr } from "@/lib/currency";
 
 interface ArtworkData {
   id: string;
@@ -81,9 +82,17 @@ export default function VerifyPage() {
       
       <main className="container mx-auto px-4 pt-8 pb-12">
         <div className="max-w-4xl mx-auto">
-          {/* Verification Badge */}
+          {/* Verification Badge - Twitter Style */}
           <div className="flex items-center justify-center gap-3 mb-8 p-4 bg-primary/10 border border-primary/30 rounded-lg glow-purple">
-            <CheckCircle2 className="h-8 w-8 text-primary" />
+            <div className="w-8 h-8 rounded-full bg-[#1DA1F2] flex items-center justify-center">
+              <svg 
+                viewBox="0 0 24 24" 
+                className="w-5 h-5 text-white"
+                fill="currentColor"
+              >
+                <path d="M9.5 16.5L4 11l1.41-1.41L9.5 13.68 18.59 4.59 20 6l-10.5 10.5z"/>
+              </svg>
+            </div>
             <span className="text-xl font-bold text-primary">Verified on Base Blockchain</span>
           </div>
 
@@ -96,7 +105,7 @@ export default function VerifyPage() {
                 fill
                 className="object-cover"
                 priority
-                unoptimized
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 
@@ -152,7 +161,7 @@ export default function VerifyPage() {
 
                 <div>
                   <h3 className="text-sm font-semibold text-muted-foreground mb-2">Purchase Price</h3>
-                  <p className="text-2xl font-bold text-primary">{artwork.price}</p>
+                  <p className="text-2xl font-bold text-primary">{convertEthToInr(artwork.price)}</p>
                 </div>
               </div>
 

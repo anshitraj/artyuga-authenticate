@@ -47,7 +47,8 @@ export default async function ShopPage({
               alt={shop.name}
               fill
               className="object-cover opacity-30"
-              unoptimized
+              priority
+              sizes="100vw"
             />
             <div className="absolute inset-0 flex items-end p-6 md:p-12">
               <div className="flex items-end gap-4 md:gap-6">

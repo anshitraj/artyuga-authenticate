@@ -103,7 +103,7 @@ export const artworks: Artwork[] = [
     description: "A mesmerizing blend of glass sculptures and digital geometry, exploring the intersection of physical and virtual reality.",
     image: "https://picsum.photos/600/600?random=1",
     shopId: "1",
-    price: "0.025 ETH",
+    price: "0.025 ETH", // Will be converted to INR in display
     owner: "0x1234...5678",
   },
   {
